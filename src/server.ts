@@ -16,14 +16,14 @@ const port = 3000;
 //     console.error('Error syncing database:', error);
 //   });
 
-// app.get('/', async (req, res) => {
-//   try {
-//     res.send(`Hello, Tanvir`);
-//   } catch (error) {
-//     console.error('Error:', error);
-//     res.status(500).send('Internal Server Error');
-//   }
-// });
+app.get('/', async (req, res) => {
+  try {
+    res.send(`Hello, Tanvir`);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
