@@ -1,10 +1,28 @@
+// src/server.ts
+
 import express from 'express';
+import sequelize from './sequelizeConfig';
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello, TypeScript World!');
+// Sync Sequelize with the database
+sequelize
+  .sync()
+  .then(() => {
+    console.log('Database synced');
+  })
+  .catch((error) => {
+    console.error('Error syncing database:', error);
+  });
+
+app.get('/', async (req, res) => {
+  try {
+    res.send(`Hello, Tanvir`);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 app.listen(port, () => {
