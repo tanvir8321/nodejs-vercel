@@ -16,6 +16,8 @@ sequelize
     console.error('Error syncing database:', error);
   });
 
+  
+
 app.get('/', async (req, res) => {
   try {
     res.send(`Hello, Tanvir`);
