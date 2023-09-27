@@ -1,5 +1,6 @@
 // src/server.ts
 
+import 'dotenv/config';
 import express from 'express';
 import sequelize from './sequelizeConfig';
 
@@ -16,7 +17,7 @@ sequelize
     console.error('Error syncing database:', error);
   });
 
-  
+
 
 app.get('/', async (req, res) => {
   try {
